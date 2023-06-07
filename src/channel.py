@@ -23,3 +23,20 @@ class Channel:
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(json.dumps(self.channel, indent=2, ensure_ascii=False))
+
+
+    @classmethod
+    def get_service(cls):
+        return cls.youtube
+
+    def to_json(self, file_name):
+        with open(file_name, 'w', encoding='cp1251') as file:
+            json.dump({
+                'channel_id': self.channel_id,
+                'title': self.title,
+                'description': self.description,
+                'url': self.url,
+                'subscriber_count': self.subscriber_count,
+                'video_count': self.video_count,
+                'view_count': self.view_count
+            }, file)
