@@ -1,7 +1,10 @@
 import os
+
 from googleapiclient.discovery import build
+
 import json
 
+import isodate
 
 class Channel:
     """Класс для ютуб-канала"""
@@ -40,3 +43,8 @@ class Channel:
                 'video_count': self.video_count,
                 'view_count': self.view_count
             }, file)
+
+
+    def __str__(self):
+        return f"'{self.title} ({self.url})'"
+
