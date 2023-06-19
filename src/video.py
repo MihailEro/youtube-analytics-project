@@ -1,4 +1,5 @@
 import os
+
 from googleapiclient.discovery import build
 
 
@@ -12,7 +13,7 @@ class Video:
                                                      id=video_id
                                                      ).execute()
         self.video_title = video_response['items'][0]['snippet']['title']
-        self.video_url = 'http://www.youtube.com/watch?v=' + self.__video_id
+        self.video_url = 'https://www.youtube.com/watch?v=' + self.__video_id
         self.view_count = int(video_response['items'][0]['statistics']['viewCount'])
         self.like_count = int(video_response['items'][0]['statistics']['likeCount'])
 
